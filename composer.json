@@ -1,0 +1,38 @@
+{
+    "name": "silvercommerce/versionhistoryfield",
+    "description": "Field that hows a simple version history of a versioned DataObject.",
+    "type": "silverstripe-vendormodule",
+    "homepage": "https://github.com/silvercommerce/versionhistoryfield",
+    "keywords": [
+        "silverstripe",
+        "formfield",
+        "forms",
+        "versioned"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Morven Lewis-Everley",
+            "email": "morven@ilateral.co.uk"
+        },
+        {
+            "name": "Mark Anderson",
+            "email": "mark@ilateral.co.uk"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/silvercommerce/versionhistoryfield/issues"
+    },
+    "require": {
+        "silverstripe/framework": "^4",
+        "silverstripe/versioned": "^1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SilverCommerce\\VersionHistoryField\\": "src/"
+        }
+    },
+    "suggest": {
+        "silverstripe/cms": "Add full content management support to your site"
+    }
+}
