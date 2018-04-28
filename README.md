@@ -1,5 +1,7 @@
 # SilverStripe VersionHistoryField
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/silvercommerce/versionhistoryfield/badges/quality-score.png?b=1.0)](https://scrutinizer-ci.com/g/silvercommerce/versionhistoryfield/?branch=1.0)
+
 Simple field that lists changes made to an associated "Versioned" DataObject
 
 Designed to be used with SilverCommerce Estimates, Invoices and contacts, but
