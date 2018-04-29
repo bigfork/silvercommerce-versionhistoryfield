@@ -55,6 +55,11 @@ class VersionHistoryField extends FormField
         parent::__construct($name, $title);
     }
 
+    /**
+     * Get a list of versions of the current record.
+     *
+     * @return ArrayList
+     */
     public function getVersions()
     {
         $record = $this->getRecord();
@@ -65,26 +70,29 @@ class VersionHistoryField extends FormField
 
             foreach ($versions as $version) {
                 $i = $version->Version;
+                $diff = null;
 
                 if ($i > 1) {
-                    $add = false;
-                    $frm = Versioned::get_version($record->ClassName, $record->ID, $i - 1);
-                    $to = Versioned::get_version($record->ClassName, $record->ID, $i);
+                    $frm = Versioned::get_version(
+                        $record->ClassName,
+                        $record->ID,
+                        $i - 1
+                    );
+                    $to = Versioned::get_version(
+                        $record->ClassName,
+                        $record->ID,
+                        $i
+                    );
                     $diff = DataDifferencer::create($frm, $to);
-
-                    // Only add if there was acctually a propper change
-                    foreach ($diff->ChangedFields() as $change) {
-                        if ($change->Name != "LastEdited") {
-                            $return->add(ArrayData::create(
-                                [
-                                    "Version" => $version,
-                                    "Diff" => $diff
-                                ]
-                            ));
-                            break;
-                        }
-                    }
+                    $diff->ignoreFields(["LastEdited"]);
                 }
+
+                $return->add(ArrayData::create(
+                    [
+                        "Version" => $version,
+                        "Diff" => $diff
+                    ]
+                ));
             }
         }
 
