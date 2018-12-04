@@ -7,3 +7,7 @@
 ## 1.0.1
 
 * Add slightly more comprehensive output
+
+## 1.0.2
+
+* fixed bug when letest version is unpublished
