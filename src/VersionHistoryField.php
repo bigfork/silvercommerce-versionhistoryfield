@@ -83,8 +83,10 @@ class VersionHistoryField extends FormField
                         $record->ID,
                         $i
                     );
-                    $diff = DataDifferencer::create($frm, $to);
-                    $diff->ignoreFields(["LastEdited"]);
+                    if ($frm && $to) {
+                        $diff = DataDifferencer::create($frm, $to);
+                        $diff->ignoreFields(["LastEdited"]);
+                    }
                 }
 
                 $return->add(ArrayData::create(
