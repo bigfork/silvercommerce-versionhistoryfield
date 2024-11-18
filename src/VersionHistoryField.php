@@ -66,7 +66,7 @@ class VersionHistoryField extends FormField
         $return = ArrayList::create();
 
         if ($record->hasExtension(Versioned::class)) {
-            $versions = $record->AllVersions();
+            $versions = $record->Versions();
 
             foreach ($versions as $version) {
                 $i = $version->Version;
